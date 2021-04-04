@@ -6,39 +6,86 @@ let mail:any=document.getElementById("mail");
 let mobile:any=document.getElementById("mobile");
 let checkbox:any=document.getElementById("list");
 let range:any=document.getElementById("Nivel");
-let message:any=document.getElementById("message");
+let ch1:any=document.getElementById("ch1");
+let ch2:any=document.getElementById("ch2");
+let ch3:any=document.getElementById("ch3");
+let ch4:any=document.getElementById("ch4");
+let ch5:any=document.getElementById("ch5");
+let ch6:any=document.getElementById("ch6");
+let a1:any=document.getElementById("a1");
+let a2:any=document.getElementById("a2");
+let a3:any=document.getElementById("a3");
+let a4:any=document.getElementById("a4");
+let a5:any=document.getElementById("a5");
+let textbox:any=document.getElementById("desc")
+
+/**
+ * @deprecated
+ * valida rut, que tenga 8 digitos sin puntos y digito o bien k despues del guión,
+ * no funciona como se esperaba debido a que no tiene acceso a FormData, y fue reemplazada con html5
+ * @param rut 
+ */
 function validate(rut:string){
     let Rutvalidate = new RegExp("/[0-9]{8}-(\d|k)/");
     console.log(rut)
     console.log(Rutvalidate.test(rut));
 }
-/*function Regextest(input) {
-    let regexp = new RegExp("/^[a-zA-Z]+@[a-zA-Z]+\.com$/");
-    regexp.test(input);
-}*/
-form.addEventListener("submit",function(event:any){
-        //rut.toString;
-        //validate(rut);
-        form.style.display="none";
-        message.style.display="block";
-        message.innerHTML="Hemos  recibido  sus  datos,  pronto  nos estaremos comunicando con usted";
-        message.style.color="black";
-        event.preventDefault();
-    /*if(validate(rut)){
-        form.style.display="none";
-        message.style.display="block";
-        message.innerHTML="Hemos  recibido  sus  datos,  pronto  nos estaremos comunicando con usted";
-        message.style.color="black";
-        event.preventDefault();
+/**
+ * Funcion del boton "limpiar", limpia uno por uno cada campo del formulario. Podria ordenarse con un arreglo
+ * pero por lo demas es funcional
+ */
+function limpiarDatos(){
+    nombres.value ='';
+    apellidos.value ='';
+    rut.value='';
+    mail.value='';
+    mobile.value='';
+    textbox.value='';
+    a1.checked = false;
+    a2.checked = false;
+    a3.checked = false;
+    a4.checked = false;
+    a5.checked = false;
+    ch1.checked = false;
+    ch2.checked = false;
+    ch3.checked = false;
+    ch4.checked = false;
+    ch5.checked = false;
+    ch6.checked = false;
+}
+/**
+ * verifica que se ha seleccionado al menos una checkbox con el nombre "ch", formdata contiene los datos del formulario
+ * (Como nota personal, se pudo haber usado esto en vez de hmtl para verificar RUT)
+ * @returns boolen
+ */
+function checkboxes(){
+    let formdata = new FormData(form);
+    if(formdata.has("ch")){
+        return true;
     }else{
-        message.style.display="block";
-        message.innerHTML="Ingrese un rut valido";
-        message.style.color="black";
-        event.preventDefault();
-    }*/    
+        return false;
+    }
+}
+/** Funcion del boton enviar: Verifica que se seleccione al menos una checkbox (ch1,ch2,...ch6) con checkboxes
+ *  si pasa la verificacion procede a ocultar el error (si es que es visible), oculta el formulario y presenta el 
+ *  mensaje de verificacion "Hemos recibido sus datos, pronto nos estaremos comunicando con usted"
+ */
+form.addEventListener("submit",function(event:any){
+        let err:any=document.getElementById("error");
+        if(checkboxes()){
+            err.style.display="none";
+            let message:any=document.getElementById("message");
+            form.style.display="none";
+            message.style.display="block";
+            message.innerHTML="Hemos  recibido  sus  datos,  pronto  nos estaremos comunicando con usted";
+            message.style.color="black";
+            event.preventDefault();
+        }else{
+            err.style.display="block";
+            err.innerHTML="Seleccione al menos una opción";
+            err.style.color="red";
+            event.preventDefault();
+        }
 });
 
-form.addEventListener("limpiar",function(event:any){
-    
-});
 

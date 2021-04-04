@@ -1,4 +1,40 @@
-#thanks {
+body {
+  background-color: #d6dee0;
+  word-spacing: 5px;
+  line-height: 25px;
+}
+
+#preferencias {
+  text-align: justify;
+  white-space: nowrap;
+}
+
+#desc {
+  height: 100px;
+  width: 50%;
+}
+
+#submitted {
+  position: relative;
+  left: 60px;
+  height: 30px;
+  width: 70px;
+}
+
+#limpiar {
+  position: relative;
+  left: 70px;
+  height: 30px;
+  width: 70px;
+}
+
+#form {
+  color: black;
+}
+
+#message {
+  text-align: center;
+  text-rendering: optimizeLegibility;
   display: none;
 }
 /*# sourceMappingURL=styles.css.map */
