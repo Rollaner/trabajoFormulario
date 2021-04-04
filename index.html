@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/styles.css"/>
+    </head>
+    <title> Formulario de inscripción</title>
+    <body>  
+        <script src="js/scripts.js" async defer></script>    
+    
+        <div id='message'>
+        
+        </div>
+
+        <form id='form' method="post" autocomplete="on" action="#">
+            <ul>
+                <fieldset>
+                    <legend>
+                        Formulario de registro
+                    </legend>
+                <li>
+                    <label for="Nombres">Nombres</label>
+                  <input type="text" id='Nombres' placeholder="Nombres" maxlength="50" required>
+               </li>
+                <li>
+                    <label for="Apellidos">Apellidos</label>
+                    <input type="text" id='Apellidos' placeholder="Apellidos" maxlength="50" required>
+                </li>
+                <li>
+                    <label for="rut">Rut</label>
+                    <input type="text" id='rut' placeholder="12345678-9" pattern = "[0-9]{8}-(\d|k)" required>
+                </li> 
+                <li>
+                    <label for='mail'>Email</label>
+                    <input type="mail" id='mail' maxlength="20" pattern = "[a-zA-Z]+@[a-zA-Z]+\.com" placeholder="nombre@correo.com" required>
+                </li>
+                <li>   
+                    <label for="mobile">'Teléfono Móvil'</label>
+                    <input type="tel" id= 'mobile' pattern="[0-9]{9}" required>
+                </li>
+                <li>
+                    <label for="interestes">'Seleccione intereses'</label>
+                    <input type="checkbox" id='list' required>
+                </li>
+                <li>
+                    <label for="conociemientos">Indique su nivel conocimientos</label>
+                    Bajo<input type="range" id="Nivel" required>Alto
+                </li>
+                <li>
+                    <label for="Experiencia">'Indique su nivel de experiencia'</label>
+                    <input type="radio" name="Años" id="a1" required>
+                    <label for="a1">1 año</label>
+                    <input type="radio" name="Años" id="a2" required>
+                    <label for="a2">2 años</label>
+                    <input type="radio" name="Años" id="a3" required>
+                    <label for="a3">3 años</label>
+                    <input type="radio" name="Años" id="a4" required>
+                    <label for="a4">4 años</label>
+                    <input type="radio" name="Años" id="a5" required>
+                    <label for="a5">5 años</label>
+                </li>
+            </fieldset>
+            </ul>
+            <button type="submit" id="submitted">Enviar</button>
+            <button type="button" id="limpiar">Limpiar</button> 
+            <!-- <button type="reset" value="Limpiar formulario">Limpiar</button> -->
+        </form>
+
+    </body>
+</html>
