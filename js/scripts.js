@@ -18,6 +18,12 @@ var a3 = document.getElementById("a3");
 var a4 = document.getElementById("a4");
 var a5 = document.getElementById("a5");
 var textbox = document.getElementById("desc");
+function validateNumber(mobile) {
+    if ((mobile < 900000000) || (mobile > 999999999)) {
+        return false;
+    }
+    return true;
+}
 /**
  * @deprecated
  * valida rut, que tenga 8 digitos sin puntos y digito o bien k despues del guión,
@@ -31,7 +37,7 @@ function validate(rut) {
 }
 /**
  * Funcion del boton "limpiar", limpia uno por uno cada campo del formulario. Podria ordenarse con un arreglo
- * pero por lo demas es funcional
+ * pero por lo demas es funcional para el contexto de un formulario
  */
 function limpiarDatos() {
     nombres.value = '';
@@ -51,6 +57,7 @@ function limpiarDatos() {
     ch4.checked = false;
     ch5.checked = false;
     ch6.checked = false;
+    //form.reset(); /* Comedy Gold, Seria recomendable decomentar esta linea para reducir el manteniemiento */
 }
 /**
  * verifica que se ha seleccionado al menos una checkbox con el nombre "ch", formdata contiene los datos del formulario
@@ -72,19 +79,33 @@ function checkboxes() {
  */
 form.addEventListener("submit", function (event) {
     var err = document.getElementById("error");
-    if (checkboxes()) {
+    var errN = document.getElementById("errorN");
+    if (!checkboxes()) {
+        err.style.display = "block";
+        err.innerHTML = "Seleccione al menos una opción";
+        err.style.color = "red";
+        event.preventDefault();
+    }
+    else {
         err.style.display = "none";
+    }
+    if (!validateNumber(mobile.value)) {
+        errN.style.display = "block";
+        errN.innerHTML = "Ingrese un numero valido";
+        errN.style.color = "red";
+        event.preventDefault();
+    }
+    else {
+        errN.style.display = "none";
+    }
+    if ((checkboxes()) && (validateNumber(mobile.value))) {
+        err.style.display = "none";
+        errN.style.display = "none";
         var message = document.getElementById("message");
         form.style.display = "none";
         message.style.display = "block";
         message.innerHTML = "Hemos  recibido  sus  datos,  pronto  nos estaremos comunicando con usted";
         message.style.color = "black";
-        event.preventDefault();
-    }
-    else {
-        err.style.display = "block";
-        err.innerHTML = "Seleccione al menos una opción";
-        err.style.color = "red";
         event.preventDefault();
     }
 });

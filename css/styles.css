@@ -1,31 +1,71 @@
 body {
   background-color: #d6dee0;
-  word-spacing: 5px;
-  line-height: 25px;
+  word-spacing: 1mm;
+}
+
+body ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+body input[type=text] {
+  width: 50%;
+  padding: 8px 15px;
+  margin: 8px 0;
+}
+
+body input[type=number] {
+  width: 20%;
+  padding: 8px 15px;
+  margin: 8px 0;
+}
+
+body input[type=mail] {
+  width: 50%;
+  padding: 8px 15px;
+  margin: 8px 0;
+}
+
+body input:focus {
+  border: 3px solid rgba(75, 74, 74, 0.74);
+}
+
+body input[type=checkbox] {
+  display: inline-block;
+  white-space: pre-line;
+  text-rendering: optimizeLegibility;
 }
 
 #preferencias {
-  text-align: justify;
   white-space: nowrap;
 }
 
 #desc {
-  height: 100px;
+  white-space: pre-wrap;
+  line-break: auto;
+  height: 120px;
   width: 50%;
+  resize: none;
 }
 
 #submitted {
   position: relative;
   left: 60px;
   height: 30px;
-  width: 70px;
+  width: 10%;
+  text-rendering: optimizeLegibility;
+  background-color: greenyellow;
 }
 
 #limpiar {
   position: relative;
   left: 70px;
   height: 30px;
-  width: 70px;
+  width: 10%;
+  text-rendering: optimizeLegibility;
+  background-color: dimgray;
+  color: ghostwhite;
 }
 
 #form {

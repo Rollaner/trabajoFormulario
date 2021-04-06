@@ -23,27 +23,39 @@
                     </legend>
                 <li>
                     <label for="Nombres">Nombre</label>
-                  <input type="text" id='Nombres' placeholder="Nombres" maxlength="50" required>
+                  <input type="text" id='Nombres' placeholder="Nombre" maxlength="50" required
+                  oninvalid="this.setCustomValidity('Por favor ingrese su nombre')"
+                    oninput="this.setCustomValidity('')">
                </li>
                 <li>
                     <label for="Apellidos">Apellidos</label>
-                    <input type="text" id='Apellidos' placeholder="Apellidos" maxlength="50" required>
+                    <input type="text" id='Apellidos' placeholder="Apellidos" maxlength="50" required
+                    oninvalid="this.setCustomValidity('Por favor ingrese sus apellidos')"
+                    oninput="this.setCustomValidity('')">
                 </li>
                 <li>
                     <label for="rut">Rut</label>
-                    <input type="text" id='rut' placeholder="12345678-9" pattern = "[0-9]{8}-(\d|k)" required>
+                    <input type="text" id='rut' placeholder="12345678-9" pattern = "[0-9]{8}-(\d|k)" required
+                    oninvalid="this.setCustomValidity('Por favor ingrese un rut valido')"
+                    oninput="this.setCustomValidity('')">
                 </li> 
                 <li>
                     <label for='mail'>Correo Electrónico</label>
-                    <input type="mail" id='mail' maxlength="20" pattern = "[a-zA-Z]+@[a-zA-Z]+\.com" placeholder="nombre@correo.com" required>
+                    <input type="mail" id='mail' maxlength="20" pattern = "[a-zA-Z]+@[a-zA-Z]+\.com" placeholder="nombre@correo.com" 
+                    required oninvalid="this.setCustomValidity('Por favor ingrese un correo valido')"
+                    oninput="this.setCustomValidity('')">
                 </li>
-                <li>   
+                <li>  
+                    <div id="errorN"></div> 
                     <label for="mobile">Teléfono Móvil</label>
-                    <input type="tel" id= 'mobile' pattern="9+[0-9]{8}" required>
+                    <input type="number" id= 'mobile' pattern="9+[0-9]{8}" required 
+                    oninvalid="this.setCustomValidity('Por favor ingrese un numero de teléfono')"
+                    oninput="this.setCustomValidity('')">
                 </li>
-                Selecciona 1 o más lenguajes de programación de su interés
                 <li name="preferencias" id="preferencias">  
+                    Selecciona 1 o más lenguajes de programación de su interés
                     <div id='error'></div>
+                </li>
                     <input type="checkbox" name="ch" id='ch1'>
                     <label for="ch1">Python</label>
                     <input type="checkbox" name="ch" id='ch2'>
@@ -56,7 +68,6 @@
                     <label for="ch5">C#</label>
                     <input type="checkbox" name="ch" id='ch6'>
                     <label for="ch6">C++</label>
-                </li>
                 <li>
                     <label for="conociemientos">Cuál es su nivel de conocimiento enprogramación?</label>
                     Bajo<input type="range" id="Nivel" required>Alto
@@ -74,9 +85,11 @@
                     <input type="radio" name="Años" id="a5" required>
                     <label for="a5">5</label>
                 </li>
-                Una descripción breve acerca de usted:
-                <input type="textArea" name="Descripción" id="desc" maxlength="300">
-                </fieldset>
+                <br>
+                <textarea name="Descripción" placeholder="Una descripción breve acerca de usted:" id="desc" required maxlength="300"
+                oninvalid="this.setCustomValidity('Por favor entrege una breve descripción acerca de usted')"
+                    oninput="this.setCustomValidity('')">
+                </textarea>
             </ul>
             <button type="submit" id="submitted">Enviar</button>
             <button type="button" onclick="limpiarDatos()" id="limpiar">Limpiar</button> 
